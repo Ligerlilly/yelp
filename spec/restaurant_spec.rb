@@ -13,7 +13,8 @@ describe Restaurant do
 
   describe '#id' do
     it 'returns the id of the restaurant' do
-      expect(@rest.id).to eq 1
+      @rest.save
+      expect(Restaurant.all.first.id).to eq 1
     end
   end
 
@@ -37,6 +38,6 @@ describe Restaurant do
     end
   end
 
-  
+
 
 end

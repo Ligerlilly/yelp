@@ -1,11 +1,11 @@
 class Restaurant
 
-  attr_reader :name, :location, :phone
+  attr_reader :name, :location, :phone, :id
   def initialize(attributes)
     @name = attributes.fetch(:name)
     @location = attributes.fetch(:location)
     @phone = attributes.fetch(:phone)
-
+    @id = attributes.fetch(:id, "")
   end
 
   def self.all
@@ -15,7 +15,8 @@ class Restaurant
       name = rest['name']
       location = rest['location']
       phone = rest['phone']
-      restaurants.push(Restaurant.new({ name: name, location: location, phone: phone }))
+      id = rest['id'].to_i
+      restaurants.push(Restaurant.new({ name: name, location: location, phone: phone, id: id }))
     end
     restaurants
   end
