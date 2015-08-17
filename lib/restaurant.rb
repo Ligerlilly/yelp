@@ -22,7 +22,8 @@ class Restaurant
   end
 
   def save
-    DB.exec("INSERT INTO restaurants (name, location, phone) VALUES ('#{@name}', '#{@location}', '#{@phone}');")
+    result = DB.exec("INSERT INTO restaurants (name, location, phone) VALUES ('#{@name}', '#{@location}', '#{@phone}') RETURNING id;")
+    @id = result.first.fetch('id').to_i
   end
 
   def ==(another_rest)

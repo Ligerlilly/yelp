@@ -11,6 +11,17 @@ describe Restaurant do
     end
   end
 
+  describe '#location' do
+    it 'returns the location of the restaurant' do
+      expect(@rest.location).to eq '1111 near you'
+    end
+  end
+  describe '#phone' do
+    it 'returns the phone of the restaurant' do
+      expect(@rest.phone).to eq '5555555555'
+    end
+  end
+
   describe '#id' do
     it 'returns the id of the restaurant' do
       @rest.save
