@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Food do
   before do
-    @food = Food.new({ name: 'Egg roll', cost: 2, type: 'Chinese'})
+    @food = Food.new({ name: 'Egg roll', cost: 2, type: 'Chinese', rest_id: 2})
   end
   describe '#name' do
     it 'returns the foods name' do
@@ -27,5 +27,19 @@ describe Food do
       expect(Food.all).to eq []
     end
   end
-  
+
+  describe '#save' do
+    it 'saves food in the foods array' do
+      @food.save
+      expect(Food.all).to eq [@food]
+    end
+  end
+
+  describe '#==' do
+    it '' do
+      food2 = Food.new({ name: 'Egg roll', cost: 2, type: 'Chinese', rest_id: 2})
+      expect(@food).to eq food2
+    end
+  end
+
 end
